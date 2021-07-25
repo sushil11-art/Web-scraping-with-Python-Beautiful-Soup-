@@ -79,6 +79,7 @@ def scrape_book_category():
         category_name = bsoup.find(
             'div', class_="col-sm-8 col-md-9").find('div', class_="page-header action").h1.text
         print(category_name)
+
     print(url_categories)
 
 

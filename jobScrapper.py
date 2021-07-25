@@ -19,22 +19,17 @@ def search_job():
         print(f"Loop count:{i}")
         url = 'https://www.timesjobs.com/candidate/job-search.html?from=submit&actualTxtKeywords=python&searchBy=0&rdoOperator=OR&searchType=personalizedSearch&luceneResultSize=25&postWeek=60&txtKeywords=python&pDate=I&sequence=' + \
             str(i)+'&startPage='+str(startPage)
-        # print(url)
-        # sequence = sequence+i
+
         if i % 10 == 0:
             startPage = startPage+10
-        # info = {}
         # url = 'https://www.timesjobs.com/candidate/job-search.html?from=submit&actualTxtKeywords=python&searchBy=0&rdoOperator=OR&searchType=personalizedSearch&luceneResultSize=25&postWeek=60&txtKeywords=python&pDate=I&sequence=1&startPage=1'
         # status = requests.get(url)
-        # print(status)
         text = requests.get(url).content
         soup = BeautifulSoup(text, 'lxml')
         jobs = soup.find_all('li', class_='clearfix job-bx wht-shd-bx')
         # print(jobs)
         for job in jobs:
-            # print(len(jobs))
             date = job.find('span', class_="sim-posted").span.text
-            # print(date)
             if 'Posted' in date:
                 company_name = job.find(
                     'h3', class_="joblist-comp-name").text.replace(' ', '')
