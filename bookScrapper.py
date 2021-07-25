@@ -90,7 +90,7 @@ def desc_full_url(description_link):
 
 # http://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html
 
-# scrape_book_all()
+scrape_book_all()
 scrape_book_category()
 
 # //*[@id = "content_inner"]/article/p/text()
